@@ -21,6 +21,7 @@ export default function TicketImage({ user }: TicketImageProps) {
       </Head>
 
       <Ticket 
+        size="big"
         name={user.name}
         githubUsername={user.githubUsername}
         roleOrCompany={user.roleOrCompany}

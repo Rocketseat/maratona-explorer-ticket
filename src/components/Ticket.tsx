@@ -5,11 +5,19 @@ interface TicketProps extends SVGAttributes<HTMLOrSVGElement> {
   roleOrCompany?: string;
   githubUsername?: string;
   avatarUrl?: string;
+  size?: 'big' | 'small';
 }
 
-export function Ticket({ name, roleOrCompany, githubUsername, avatarUrl, ...props }: TicketProps) {
+export function Ticket({ 
+  name, 
+  roleOrCompany, 
+  githubUsername, 
+  avatarUrl, 
+  size = 'small',
+  ...props
+}: TicketProps) {
   return (
-    <div className="relative">
+    <div className={`relative ${size === 'big' ? 'scale-150' : ''}`}>
       {githubUsername && (
         <div className="absolute z-10 bottom-10 left-12 flex items-center gap-4 text-neutral-200">
           <img className="w-16 h-16 rounded-full" src={avatarUrl} alt="" />
