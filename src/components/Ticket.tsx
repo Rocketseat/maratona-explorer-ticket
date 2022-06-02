@@ -19,7 +19,7 @@ export function Ticket({
   return (
     <div className={`relative ${size === 'big' ? 'scale-150' : ''}`}>
       {githubUsername && (
-        <div className="absolute z-10 bottom-10 left-12 flex items-center gap-4 text-neutral-200">
+        <div className="absolute z-10 -left-6 bottom-3 scale-[60%] lg:scale-100 lg:bottom-10 lg:left-12 flex items-center gap-4 text-neutral-200">
           <img className="w-16 h-16 rounded-full" src={avatarUrl} alt="" />
           <div className="flex flex-col gap-1">
             <strong className="text-2xl font-bold">{name || githubUsername}</strong>
