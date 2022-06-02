@@ -1,5 +1,4 @@
 import { Redis } from "@upstash/redis";
-import crypto from 'node:crypto';
 
 export const redisConnection = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL,
@@ -14,7 +13,7 @@ interface UserData {
 }
 
 export async function createUser(data: UserData) {
-  const userId = crypto.randomUUID();
+  const userId = data.githubUsername;
   
   await redisConnection.hsetnx('users', userId, data);
 
