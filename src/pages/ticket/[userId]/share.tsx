@@ -18,13 +18,13 @@ interface TicketPageProps {
 export default function TicketPage({ user }: TicketPageProps) {
   const ogOriginalUrl = `${process.env.NEXT_PUBLIC_APP_URL}/ticket/${user.githubUsername}/share`;
   const ogImageUrl = `${process.env.NEXT_PUBLIC_APP_URL}/ticket.png?userId=${user.githubUsername}`;
-  const ogtitle = `Junte-se à ${user.name || user.githubUsername} | Maratona Explorer`
+  const ogTitle = `Junte-se à ${user.name || user.githubUsername} | Maratona Explorer`
   const ogDescription = `Junte-se a ${user.name || user.githubUsername} na Maratona Explorer da Rocketseat`;
 
   return (
     <main className="lg:h-screen max-w-[480px] lg:max-w-[1240px] p-12 mx-auto flex items-center gap-24 flex-col lg:flex-row">
       <Head>
-        <title>{ogtitle}</title>
+        <title>{ogTitle}</title>
 
         <meta name="image" content={ogImageUrl} />
         <meta property="og:image" content={ogImageUrl} />
@@ -34,19 +34,19 @@ export default function TicketPage({ user }: TicketPageProps) {
         <meta name="description" content={ogDescription} />
         <meta property="og:url" content={ogOriginalUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={ogtitle} />
+        <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={ogDescription} />
         <meta property="og:locale" content="pt_BR" />
-        <meta property="og:site_name" content={ogtitle} />
-        <meta property="og:image:alt" content={ogtitle} />
+        <meta property="og:site_name" content={ogTitle} />
+        <meta property="og:image:alt" content={ogTitle} />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={ogtitle} />
+        <meta name="twitter:title" content={ogTitle} />
         <meta name="twitter:site" content="@rocketseat" />
         <meta name="twitter:creator" content="@rocketseat" />
-        <meta name="twitter:image:alt" content={ogtitle} />
+        <meta name="twitter:image:alt" content={ogTitle} />
         <meta name="twitter:image:width" content="1200" />
         <meta name="twitter:image:height" content="630" />
         <link rel="canonical" href={ogOriginalUrl} />
