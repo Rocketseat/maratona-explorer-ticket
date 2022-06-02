@@ -90,6 +90,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const user = await getUser(String(params.userId))
 
+  fetch(`${process.env.NEXT_PUBLIC_APP_URL}/ticket/${params.userId}/image`);
+
   return {
     props: {
       user,
