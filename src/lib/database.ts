@@ -15,7 +15,7 @@ interface UserData {
 export async function createUser(data: UserData) {
   const userId = data.githubUsername;
   
-  await redisConnection.hsetnx('users', userId, data);
+  await redisConnection.hset('users', { [userId]: data });
 
   return userId;
 }
