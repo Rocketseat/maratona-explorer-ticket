@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '360px',
+        'sm': '420px',
+      },
       fontFamily: {
         'sans': ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
       },
