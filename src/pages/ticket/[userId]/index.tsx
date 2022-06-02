@@ -4,7 +4,7 @@ import { Ticket } from "../../../components/Ticket";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { getUser } from "../../../lib/database";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 
 interface TicketPageProps {
@@ -26,6 +26,10 @@ export default function TicketPage({ user }: TicketPageProps) {
   const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL}/ticket/${userId}/share`
   const shareMessage = encodeURIComponent(`Fala, dev! Estou participando da Maratona Explorer, um evento online e gratuito de programação da Rocketseat, onde vamos construir juntos uma aplicação completa de 06 a 12 de junho e acelerar na carreira.\n\nJunte-se a mim pelo link: ${shareUrl}`);
   const twitterShareMessage = encodeURIComponent(`Fala, dev! Estou participando da Maratona Explorer, um evento online e gratuito de programação da Rocketseat, onde vamos construir juntos uma aplicação completa de 06 a 12 de junho e acelerar na carreira.\n\nJunte-se a mim!`);
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_APP_URL}/ticket/${userId}/image`);
+  }, [userId])
 
   async function handleCopyTicketLink() {
     await navigator.clipboard.writeText(shareUrl);
