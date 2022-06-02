@@ -28,7 +28,7 @@ export default function TicketPage({ user }: TicketPageProps) {
   const twitterShareMessage = encodeURIComponent(`Fala, dev! Estou participando da Maratona Explorer, um evento online e gratuito de programação da Rocketseat, onde vamos construir juntos uma aplicação completa de 06 a 12 de junho e acelerar na carreira.\n\nJunte-se a mim!`);
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_APP_URL}/ticket/${userId}/image`);
+    fetch(`${process.env.NEXT_PUBLIC_APP_URL}/ticket.png?userId=${userId}`);
   }, [userId])
 
   async function handleCopyTicketLink() {
