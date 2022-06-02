@@ -16,11 +16,40 @@ interface TicketPageProps {
 }
 
 export default function TicketPage({ user }: TicketPageProps) {
+  const ogOriginalUrl = `${process.env.NEXT_PUBLIC_APP_URL}/ticket/${user.githubUsername}/share`;
+  const ogImageUrl = `${process.env.NEXT_PUBLIC_APP_URL}/ticket.png?userId=${user.githubUsername}`;
+  const ogtitle = `Junte-se à ${user.name || user.githubUsername} | Maratona Explorer`
+  const ogDescription = `Junte-se a ${user.name || user.githubUsername} na Maratona Explorer da Rocketseat`;
+
   return (
     <main className="lg:h-screen max-w-[480px] lg:max-w-[1240px] p-12 mx-auto flex items-center gap-24 flex-col lg:flex-row">
       <Head>
-        <title>Junte-se à {user.name} | Maratona Explorer</title>
+        <title>{ogtitle}</title>
 
+        <meta name="image" content={ogImageUrl} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image:src" content={ogImageUrl} />
+        <meta name="description" content={ogDescription} />
+        <meta property="og:url" content={ogOriginalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={ogtitle} />
+        <meta property="og:description" content={ogDescription} />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:site_name" content={ogtitle} />
+        <meta property="og:image:alt" content={ogtitle} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={ogtitle} />
+        <meta name="twitter:site" content="@rocketseat" />
+        <meta name="twitter:creator" content="@rocketseat" />
+        <meta name="twitter:image:alt" content={ogtitle} />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+        <link rel="canonical" href={ogOriginalUrl} />
         <meta name="robots" content="noindex" />
       </Head>
 
@@ -28,11 +57,11 @@ export default function TicketPage({ user }: TicketPageProps) {
         <Image src="/logo.svg" width={228} height={63} />
 
         <strong className="text-neutral-200 text-4xl mt-4 block leading-tight">
-          Junte-se a {user.name} na Maratona Explorer da Rocketseat
+          {ogDescription}
         </strong>
 
         <a 
-          href="https://lp.rocketseat.com.br/inscricao/maratona-explorer"
+          href="https://lp.rocketseat.com.br/inscricao/maratona-explorer?utm_source=redes_sociais&utm_medium=ticket&utm_campaign=capture-maratona&utm_term=referral&utm_content=ticket-lead-convite"
           className="mt-8 w-full group flex justify-center items-center gap-2 text-black px-6 py-4 bg-brand-500 rounded font-bold hover:bg-brand-300"
         >       
           PARTICIPAR GRATUITAMENTE
