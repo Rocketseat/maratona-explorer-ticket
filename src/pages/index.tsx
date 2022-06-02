@@ -23,7 +23,6 @@ export default function Home() {
               <Image src="/icons/github.svg" width={24} height={24} />
               Faça login com GitHub
             </a>
-
           </footer>
         </div>
 

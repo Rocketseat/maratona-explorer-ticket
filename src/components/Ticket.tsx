@@ -10,11 +10,11 @@ interface TicketProps extends SVGAttributes<HTMLOrSVGElement> {
 export function Ticket({ name, roleOrCompany, githubUsername, avatarUrl, ...props }: TicketProps) {
   return (
     <div className="relative">
-      {name && (
+      {githubUsername && (
         <div className="absolute z-10 bottom-10 left-12 flex items-center gap-4 text-neutral-200">
           <img className="w-16 h-16 rounded-full" src={avatarUrl} alt="" />
           <div className="flex flex-col gap-1">
-            <strong className="text-2xl font-bold">{name}</strong>
+            <strong className="text-2xl font-bold">{name || githubUsername}</strong>
             <span className="text-brand-700 text-sm">
               {githubUsername || roleOrCompany}
             </span>

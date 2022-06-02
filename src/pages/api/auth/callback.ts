@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createUser, getUser } from "../../../lib/database";
+import { createUser } from "../../../lib/database";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const requestToken = req.query.code
@@ -12,8 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     headers: {
       Accept: 'application/json',
     }
-  }
-  )
+  })
   const tokenData = await tokenResponse.json();
   const accessToken = tokenData.access_token;
 
