@@ -8,7 +8,7 @@ function MyApp({
   return (
     <>
       <Head>
-        <title>Ticket da Maratona Explorer</title>
+        <title>Ticket da Maratona Explore</title>
       </Head>
       <Component {...pageProps} />
     </>
